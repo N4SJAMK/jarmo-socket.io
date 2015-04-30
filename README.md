@@ -18,7 +18,8 @@ Taken directly from the source:
 ```
 The configuration is very similar to [jarmo-express](N4SJAMK/jarmo-express),
 however here you have two separate payload resolvers, for both `connect` and
-`disconnect` events.
+`disconnect` events. Similarly to [jarmo-express](N4SJAMK/jarmo-express), you
+must set the `JARMO_ENABLE` environmental variable for this to actually work.
 
 ## Example
 ```javascript
