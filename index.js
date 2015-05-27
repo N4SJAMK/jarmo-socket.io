@@ -18,7 +18,7 @@ var client = dgram.createSocket('udp4');
  *
  * @return {function} The middleware function.
  */
-function jarmo(config) {
+module.exports = function jarmo(config) {
 	// Make sure the configuration is of the correct format.
 	config      = config      || { }
 	config.host = config.host || 'localhost';
