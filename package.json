@@ -1,14 +1,13 @@
 {
-  "name":        "jarmo-socket.io",
-  "version":     "0.1.0",
+  "name": "jarmo-socket.io",
+  "version": "0.1.1",
   "description": "Socket.IO middleware for Jarmo.",
-
   "keywords": [
-    "jarmo", "socket.io", "client"
+    "jarmo",
+    "socket.io",
+    "client"
   ],
-
   "repository": "N4SJAMK/jarmo-socket.io",
-
-  "author":  "taneli.hartikainen@jamk.fi",
+  "author": "taneli.hartikainen@jamk.fi",
   "license": "MIT"
 }
