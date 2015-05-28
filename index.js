@@ -50,9 +50,7 @@ module.exports = function jarmo(config) {
 		// If we have a payload for 'connect', send it.
 		if(cpayload) {
 			send(config.host, config.port, cpayload, function(err) {
-				if(err) {
-					return onError(err);
-				}
+				if(err) return onError(err);
 			});
 		}
 
@@ -65,9 +63,7 @@ module.exports = function jarmo(config) {
 			// If we have a payload for 'disconnect', send it.
 			if(dcpayload) {
 				send(config.host, config.port, dcpayload, function(err) {
-					if(err) {
-						return onError(err);
-					}
+					if(err) return onError(err);
 				});
 			}
 		});
@@ -94,10 +90,14 @@ function num(socket) {
  * @param {string} port     Server port.
  * @param {object} payload  Payload object, that will be made into a string,
  *                          and sent to the server.
- *
- * @return {Promise}  Promise for sending the payload.
  */
 function send(host, port, payload, callback) {
+	if(payload instanceof Array) {
+		// If the given payload is an array, recursively send each point of
+		// data contained in it.
+		return payload.map(function(p) { send(host, port, p, callback); });
+	}
+
 	// Create a Buffer of the JSON stringified payload, so we can send it.
 	var data = new Buffer(JSON.stringify(payload));
 
