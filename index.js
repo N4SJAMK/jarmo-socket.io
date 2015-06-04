@@ -33,10 +33,10 @@ module.exports = function jarmo(config) {
 	 * The actual middleware function.
 	 */
 	return function jarmoSocketIO(socket, next) {
-		if(!process.env.JARMO_ENABLE) {
+		if(process.env.JARMO_ENABLE !== 'true') {
 			console.log([
 				'By default \'jarmo-socket.io\' is disabled, enable it by',
-				'setting the JARMO_ENABLE environmental variable.'
+				'setting the JARMO_ENABLE environmental variable to \'true\'.'
 			].join(' '));
 			// By default 'jarmo-socket.io' is disabled, so using this in a
 			// development environment won't attempt to send any metrics.
